@@ -1,0 +1,53 @@
+const { packSuccess } = require('../../utils/pack-response')
+const { SMS } = require('./sms.model')
+const JOI = require('joi')
+
+const list = async (ctx) => {
+  const params = ctx.request.query
+  console.log(ctx.request.query)
+  const option = {
+    raw: true,
+    limit: 1,
+    order: [['receive_time', 'DESC']],
+  }
+  if (params.limit && params.limit > 0) {
+    option.limit = params.limit >= 100 ? 100 : params.limit
+  }
+  const result = await SMS.findAll(option)
+  ctx.body = packSuccess(result)
+}
+
+const receive = async (ctx) => {
+  const params = ctx.request.body
+  try {
+    await JOI.object({
+      phone: JOI.string().min(10).max(20).required(),
+      pwd: JOI.string().required(),
+      content: JOI.string().min(6).max(255).required(),
+    }).validateAsync(params, { allowUnknown: true })
+
+    if (params.pwd !== require('../../../config').smsPassword) {
+      ctx.state.code = 400
+      ctx.message = 'pwd error'
+      return
+    }
+
+    const row = {
+      phone: params.phone,
+      content: params.content,
+      receiveTime: new Date(),
+    }
+
+    await SMS.create(row)
+    ctx.body = packSuccess('ok')
+  } catch (e) {
+    console.error(e)
+    ctx.state.code = 400
+    ctx.message = e.message || e.toString()
+  }
+}
+
+module.exports = {
+  list,
+  receive,
+}

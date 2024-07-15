@@ -1,0 +1,18 @@
+
+@domain=http://localhost:3001
+### http test
+GET  {{domain}}/hello
+
+
+####
+GET {{domain}}/sms/list?limit=10
+
+
+####
+POST {{domain}}/sms/receive
+
+{
+  "pwd": "your pwd here",
+  "phone": "13312341233",
+  "content": "sms content here"
+}
