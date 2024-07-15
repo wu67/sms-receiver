@@ -21,7 +21,8 @@ const receive = async (ctx) => {
   const params = ctx.request.body
   try {
     await JOI.object({
-      phone: JOI.string().min(10).max(20).required(),
+      fromPhone: JOI.string().min(10).max(50).required(),
+      phone: JOI.string().min(10).max(50).required(),
       pwd: JOI.string().required(),
       content: JOI.string().min(6).max(255).required(),
     }).validateAsync(params, { allowUnknown: true })
@@ -33,6 +34,7 @@ const receive = async (ctx) => {
     }
 
     const row = {
+      fromPhone: params.fromPhone,
       phone: params.phone,
       content: params.content,
       receiveTime: new Date(),

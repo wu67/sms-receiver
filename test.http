@@ -1,5 +1,6 @@
 
 @domain=http://localhost:3001
+# @domain=https://s-api.wu67.win
 ### http test
 GET  {{domain}}/hello
 
@@ -12,7 +13,8 @@ GET {{domain}}/sms/list?limit=10
 POST {{domain}}/sms/receive
 
 {
-  "pwd": "your pwd here",
-  "phone": "13312341233",
-  "content": "sms content here"
+  "pwd": "you pwd here",
+  "fromPhone": "17612341234",
+  "phone": "17612341235",
+  "content": "sms test content here"
 }

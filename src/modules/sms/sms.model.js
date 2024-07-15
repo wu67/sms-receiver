@@ -5,6 +5,7 @@ class SMS extends Model {}
 
 SMS.init(
   {
+    fromPhone: DataTypes.STRING,
     phone: DataTypes.STRING,
     content: DataTypes.STRING,
     receiveTime: {

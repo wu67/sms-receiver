@@ -12,7 +12,8 @@ sqlite3 sms.db
 create table message(
    receive_time DATETIME primary key not null,
    content text,
-   phone TEXT not null
+   phone TEXT not null,
+   from_phone TEXT not null
 );
 ```
 
