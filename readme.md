@@ -2,6 +2,8 @@
 
 备用机短信转发后的接收服务. 基于 koajs + sqlite3.
 
+配合[sms forwarder](https://github.com/pppscn/SmsForwarder)使用
+
 #### sqlite3
 
 ```bash
@@ -29,4 +31,17 @@ create table message(
 npm i
 
 npm run start
+```
+
+#### sms frowarder config
+
+短信转发格式.
+
+```json
+{
+  "pwd": "your password here",
+  "fromPhone": "[from]",
+  "phone": "[card_slot]",
+  "content": "[org_content]"
+}
 ```
