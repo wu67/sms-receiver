@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: '/Users/wu67/Projects/sms/sms.db',
+  storage: './sms.db',
 })
 
 const baseOption = {
