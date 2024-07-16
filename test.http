@@ -1,19 +1,21 @@
 
 @domain=http://localhost:3001
 # @domain=https://s-api.wu67.win
+@ua=your-ua-here
 ### http test
 GET  {{domain}}/hello
 
 
 ####
 GET {{domain}}/sms/list?limit=10
-
+User-Agent: {{ua}}
 
 ####
 POST {{domain}}/sms/receive
+User-Agent: {{ua}}
 
 {
-  "pwd": "you pwd here",
+  "pwd": "your pwd here",
   "fromPhone": "17612341234",
   "phone": "17612341235",
   "content": "sms test content here"

@@ -1,3 +1,4 @@
 module.exports = {
-  smsPassword: ''
+  smsPassword: 'your pwd here',
+  ua: 'your-ua-here'
 }
