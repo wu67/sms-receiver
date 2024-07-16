@@ -4,7 +4,7 @@ const JOI = require('joi')
 
 const list = async (ctx) => {
   const params = ctx.request.query
-  console.log(ctx.request.query)
+  // console.log(ctx.request.query)
   const option = {
     raw: true,
     limit: 1,

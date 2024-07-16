@@ -3,6 +3,7 @@ const { Sequelize } = require('sequelize')
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: './sms.db',
+  logging: () => false,
 })
 
 const baseOption = {
