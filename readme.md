@@ -23,6 +23,8 @@ create table message(
 
 只做了简单的密码校验. 在`/config.js` 里的 `smsPassword`, 最好设置长一点.
 
+#### ua
+在`/config.js` 里的 `ua`. 随便自定义一个, 否则任何人都能访问你的验证码, 这不太安全.
 
 #### start
 
