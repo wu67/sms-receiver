@@ -21,8 +21,9 @@ const receive = async (ctx) => {
   const params = ctx.request.body
   try {
     await JOI.object({
-      fromPhone: JOI.string().min(10).max(50).required(),
-      phone: JOI.string().min(10).max(50).required(),
+      // 最小5位. 运营商号码就是5位的
+      fromPhone: JOI.string().min(5).max(30).required(),
+      phone: JOI.string().min(10).max(20).required(),
       pwd: JOI.string().required(),
       content: JOI.string().min(6).max(255).required(),
     }).validateAsync(params, { allowUnknown: true })
