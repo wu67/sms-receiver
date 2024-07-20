@@ -25,7 +25,7 @@ const receive = async (ctx) => {
       fromPhone: JOI.string().min(5).max(30).required(),
       phone: JOI.string().min(10).max(20).required(),
       pwd: JOI.string().required(),
-      content: JOI.string().min(6).max(255).required(),
+      content: JOI.string().min(4).max(512).required(),
     }).validateAsync(params, { allowUnknown: true })
 
     if (params.pwd !== require('../../../config').smsPassword) {
