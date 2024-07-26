@@ -23,7 +23,7 @@ const receive = async (ctx) => {
     await JOI.object({
       // 最小5位. 运营商号码就是5位的
       fromPhone: JOI.string().min(5).max(30).required(),
-      phone: JOI.string().min(10).max(20).required(),
+      phone: JOI.string().min(7).max(20).required(),
       pwd: JOI.string().required(),
       content: JOI.string().min(4).max(512).required(),
     }).validateAsync(params, { allowUnknown: true })
