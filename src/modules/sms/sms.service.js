@@ -40,10 +40,17 @@ const receive = async (ctx) => {
         fromPhone[i] = '*'
       }
     }
+    let content = params.content
+    let list = require('../../../config').someWord
+    if (list.length) {
+      list.forEach((i) => {
+        if (i.length) content = content.replace(i.trim(), '**')
+      })
+    }
     const row = {
       fromPhone: fromPhone.join(''),
       phone: params.phone,
-      content: params.content,
+      content: content,
       receiveTime: new Date(),
     }
 
