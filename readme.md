@@ -37,7 +37,7 @@ npm run start
 
 #### sms frowarder config
 
-短信转发格式.
+短信转发格式. 适用smsForwarder
 
 ```json
 {
@@ -45,5 +45,15 @@ npm run start
   "fromPhone": "[from]",
   "phone": "[card_slot]",
   "content": "[org_content]"
+}
+```
+
+如果用MacroDroid监听短信通知. (部分机型可能读不出短信, 干脆读通知), 可以用这个格式.
+```
+{
+ "pwd": "your password here",
+ "fromPhone": "{not_title}",
+ "phone": "通知读不到收信号码,随便输长度7以上",
+ "content": "{notification}"
 }
 ```
