@@ -1,5 +1,5 @@
 const koa = require('koa')
-const router = new require('@koa/router')()
+const router = new (require('@koa/router'))()
 const sms = require('./modules/sms/sms.controller')
 /**
  * 注册 控制器/路由
