@@ -1,20 +1,15 @@
 const koa = require('koa')
-const router = new (require('@koa/router'))()
-const sms = require('./modules/sms/sms.controller')
+const route = require('koa-path-match')({})
+const smsRegister = require('./modules/sms/sms.controller')
+
 /**
  * 注册 控制器/路由
  * @param {koa} instance
  */
 function controllerRegister(instance) {
-  router.get('/hello', async (ctx) => {
-    ctx.body = 'success'
-  })
+  smsRegister(instance)
 
-
-  router.use('/sms', sms.routes())
-
-  instance.use(router.routes())
-  // .use(router.allowedMethods())
+  instance.use(route('*', async (ctx) => (ctx.body = 'hello')))
 }
 
 module.exports = {

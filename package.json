@@ -10,10 +10,10 @@
   "author": "wu67",
   "dependencies": {
     "@koa/cors": "^5.0.0",
-    "@koa/router": "^13.1.0",
     "joi": "^17.13.3",
     "koa": "^2.15.3",
     "koa-body": "^6.0.1",
+    "koa-path-match": "^4.0.0",
     "koa-response-time": "^2.1.0",
     "sequelize": "^6.37.5",
     "sqlite3": "^5.1.7"

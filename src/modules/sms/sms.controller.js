@@ -1,9 +1,16 @@
-const Route = require('@koa/router')
-const smsRoute = new Route()
+const koa = require('koa')
+const route = require('koa-path-match')({})
 const { list, receive } = require('./sms.service')
 
-smsRoute.get('/list', list)
+const listRoute = route('/sms/list').get(list)
 
-smsRoute.post('/receive', receive)
+const receiveRoute = route('/sms/receive').post(receive)
 
-module.exports = smsRoute
+/**
+ * 注册路由到koa实例(由controller入口传进来)
+ * @param {koa} instance
+ */
+module.exports = (instance) => {
+  instance.use(listRoute)
+  instance.use(receiveRoute)
+}
