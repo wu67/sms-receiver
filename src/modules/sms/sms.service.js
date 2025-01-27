@@ -21,8 +21,8 @@ const receive = async (ctx) => {
   const params = ctx.request.body
   try {
     await JOI.object({
-      // 最小5位. 运营商号码就是5位的
-      fromPhone: JOI.string().min(5).max(30).required(),
+      // 运营商号码就是5位的. 最离谱的是小红薯, 验证码来信人是3个字母
+      fromPhone: JOI.string().min(3).max(30).required(),
       phone: JOI.string().min(7).max(30).required(),
       pwd: JOI.string().required(),
       content: JOI.string().min(4).max(512).required(),
