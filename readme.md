@@ -46,6 +46,13 @@ npm run start
   "phone": "[card_slot]",
   "content": "[org_content]"
 }
+// 以下适用smsForwarder转发应用通知, 上面的是转发短信的格式. 通知大概率无法区分是卡1还是卡2的收信.
+{
+  "pwd": "your password here",
+  "fromPhone": "[title]",
+  "phone": "[device_mark]",
+  "content": "[org_content]"
+}
 ```
 
 如果用MacroDroid监听短信通知. (部分机型可能读不出短信, 干脆读通知), 可以用这个格式.
